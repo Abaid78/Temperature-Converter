@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thermumetor</title>
+    <link rel="icon" href="download.jpg">
+    <style>
+        .container {
+            border: 2px solid grey;
+            display: flex;
+            flex-direction:column;
+            background-color: aquamarine;
+            position: relative;
+            width: 40%;
+            height: 40%;
+            align-items: center;
+            justify-content: center;
+            margin: auto;
+            
+
+        }
+
+        #cl,
+        #sel,
+        #result {
+            margin-top: 10px;
+            position: relative;
+            width: 50%;
+
+        }
+
+        #convert {
+            background-color: gray;
+            border: 2px solid rgb(58, 127, 247);
+            width: 30%;
+            font-weight: bold;
+            cursor: pointer;
+           
+        }
+
+        h2 {
+
+            color: white;
+           
+            width: 40%;
+        }
+
+        #sel1,
+        #sel2 {
+
+            position: relative;
+            border-radius: 5px black;
+
+        }
+
+        #convert:hover {
+            background-color: darkslategray;
+            cursor: pointer;
+
+
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Converter</h2>
+        <input id="cl" type="text" placeholder="Enter value">
+
+        <label for="sel1">
+
+            <input id="sel1" type="radio" value="F" name="sel">F
+
+        </label>
+        <label for="sel2">
+
+            <input id="sel2" type="radio" value="C" name="sel">C
+        </label>
+        <button id="convert">convert</button>
+        <input id="result" type="text" placeholder="Result">
+    </div>
+    <script>
+        let input = document.getElementById("cl");
+        let selaction1 = document.getElementById("sel1");
+        let selaction2 = document.getElementById("sel2");
+        let result = document.getElementById("result")
+        let convertBtn = document.getElementById("convert")
+        convertBtn.addEventListener("click", collection)
+        function collection() {
+            if (selaction1.checked) {
+                result.value = input.value * 9 / 5 + 32 + "f";
+
+            } else if (selaction2.checked) {
+                let newCl = (input.value - 32) * 5 / 9;
+                result.value = Math.round(newCl) + "c";
+            }
+            else if (input.value == "") {
+                alert("Please Enter the value");
+            }
+            else {
+                alert("Plese Choose F or C");
+            }
+
+
+
+
+        }
+
+
+    </script>
+</body>
+
+</html>
